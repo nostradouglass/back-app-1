@@ -6,6 +6,16 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
+//CORS Support
+app.use(function(req, res, next) {
+res.setHeader('Access-Control-Allow-Origin', '*');
+res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, POST, GET, PUT, DELETE, PATCH')
+res.setHeader('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type, Accept, Authorization')
+res.setHeader('Access-Control-Allow-Credentials', true)
+    next();
+})
+
+
 let mongoServer = 'mongodb+srv://admin:doritos1@cluster0-ctnrv.mongodb.net/test?retryWrites=true&w=majority'
 
 mongoose.connect(mongoServer, { useNewUrlParser: true, useUnifiedTopology: true}).then(
