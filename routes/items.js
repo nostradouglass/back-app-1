@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
 
 
 router.delete('/', (req, res) => {
-    console.log(req.params)
+    console.log(req)
     Item
         .where('_id').equals(req.params._id)
         .remove()
