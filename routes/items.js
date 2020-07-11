@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
 
 
 
-router.delete('/', (req, res) => {
+router.delete('/:_id', (req, res) => {
     console.log(req)
     Item
         .where('_id').equals(req.params._id)
